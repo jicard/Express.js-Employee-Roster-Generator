@@ -10,7 +10,7 @@
 - [Contact](#contact)
 - [Link](#link)
 ## Description
-This project generates an HTML file of a simulated employee roster based on user input. 
+This project generates an HTML file of a simulated employee roster based on user input in a terminal. 
 ## Installation
 This is installed and run by cloning the repo, and using npm to install express, path, fs, jest, and inquirer packages. 
 ## Usage
