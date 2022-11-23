@@ -1,4 +1,3 @@
-//Comment
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -11,18 +10,16 @@ const distPath = path.join(DIST_DIR, 'team.html');
 
 const render = require('./src/page-template.js');
 
-const teamMembers = [];
+const employees = [];
 const idArray = [];
 
 // Inform user of usage
-console.log(
-  '\nWelcome to the team generator!\nUse `npm run reset` to reset the dist/ folder\n'
-);
+console.log('\nWelcome to the team generator!\nUse `npm run reset` to reset the dist/ folder\n');
 
-function appMenu() {
-  function createManager() {
+async function appMenu() {
+  //async function createManager() {
     console.log('Please build your team 👥');
-    inquirer
+    await inquirer
       .prompt([
         {
           type: 'input',
@@ -79,33 +76,103 @@ function appMenu() {
           answers.managerEmail,
           answers.managerOfficeNumber
         );
-        teamMembers.push(manager);
+        employees.push(manager);
         idArray.push(answers.managerId);
         createTeam();
       });
   }
-
   function createTeam() {
     //code goes here
-  }
-
-  function addEngineer() {
-    //code goes here
-  }
-
-  function addIntern() {
-    //code goes here
-  }
-
-  function buildTeam() {
-    // Create the output directory if the dist path doesn't exist
-    if (!fs.existsSync(DIST_DIR)) {
-      fs.mkdirSync(DIST_DIR);
-    }
-    fs.writeFileSync(distPath, render(teamMembers), 'utf-8');
-  }
-
-  createManager();
-}
+    inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "role",
+        message: "Would you like to add another member to your squad?",
+        choices: ["Intern", "Engineer", "None"],
+      },
+    ])
+    .then((answer) => {
+      if (answer.role === "Engineer") {
+        return inquirer
+          .prompt([
+            {
+              type: "input",
+              name: "name",
+              message: `What is the engineer's name?`,
+            },
+            {
+              type: "input",
+              name: "id",
+              message: `What is the engineer's ID number?`,
+            },
+            {
+              type: "input",
+              name: "email",
+              message: `What is the engineer's email?`,
+            },
+            {
+              type: "input",
+              name: "github",
+              message: `What is the engineer's Github?`,
+            },
+          ])
+          .then((responses) => {
+            let engineer = new Engineer(
+              responses.name,
+              responses.id,
+              responses.email,
+              responses.github
+            );
+            employees.push(engineer);
+            createTeam();
+          });
+      }
+      if (answer.role === "Intern") {
+        return inquirer
+          .prompt([
+            {
+              type: "input",
+              name: "name",
+              message: `What is the intern's name?`,
+            },
+            {
+              type: "input",
+              name: "id",
+              message: "What is the intern's id?",
+            },
+            {
+              type: "input",
+              name: "email",
+              message: `What is the intern's email?`,
+            },
+            {
+              type: "input",
+              name: "school",
+              message: `Where did/does the intern go to school?`,
+            },
+          ])
+          .then((responses) => {
+            let intern = new Intern(
+              responses.name,
+              responses.id,
+              responses.email,
+              responses.school
+            );
+            employees.push(intern);
+            createTeam();
+          });
+      }
+      if (answer.role === "None") {
+        console.log(employees);
+        if (!fs.existsSync(DIST_DIR)) {
+          fs.mkdirSync(DIST_DIR);
+        }
+        fs.writeFileSync(distPath, render(employees), 'utf-8');
+      }
+      //createManager();
+    });
+  };
+//};
 
 appMenu();
