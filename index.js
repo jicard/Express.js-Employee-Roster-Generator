@@ -17,7 +17,6 @@ const idArray = [];
 console.log('\nWelcome to the team generator!\nUse `npm run reset` to reset the dist/ folder\n');
 
 async function appMenu() {
-  //async function createManager() {
     console.log('Please build your team 👥');
     await inquirer
       .prompt([
@@ -82,7 +81,6 @@ async function appMenu() {
       });
   }
   function createTeam() {
-    //code goes here
     inquirer
     .prompt([
       {
@@ -170,9 +168,7 @@ async function appMenu() {
         }
         fs.writeFileSync(distPath, render(employees), 'utf-8');
       }
-      //createManager();
     });
   };
-//};
 
 appMenu();

@@ -10,7 +10,7 @@
 - [Contact](#contact)
 - [Link](#link)
 ## Description
-This project generates an HTML file of a simulated employee roster based on user input in a terminal. 
+This project generates an HTML file of a simulated employee roster based on user input in a terminal. You can find a sample HTML file in the /dist folder.
 ## Installation
 This is installed and run by cloning the repo, and using npm to install express, path, fs, jest, and inquirer packages. 
 ## Usage
@@ -27,3 +27,4 @@ Check out my GitHub profile! [jicard](https://github.com/jicard)
 Contact me via email @ icardj@outlook.com
 ## Link
 [Josh's Express.js Employee Roster Generator Repo](https://github.com/jicard/Express.js-Employee-Roster-Generator)
+[Screencastify Demo Link](https://app.castify.com/view/43a9e16a-d8fd-419a-8ac1-54d735c7d148)
