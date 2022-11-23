@@ -27,4 +27,5 @@ Check out my GitHub profile! [jicard](https://github.com/jicard)
 Contact me via email @ icardj@outlook.com
 ## Link
 [Josh's Express.js Employee Roster Generator Repo](https://github.com/jicard/Express.js-Employee-Roster-Generator)
+<br />
 [Screencastify Demo Link](https://app.castify.com/view/43a9e16a-d8fd-419a-8ac1-54d735c7d148)
