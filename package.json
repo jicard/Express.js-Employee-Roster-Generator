@@ -4,5 +4,26 @@
     "inquirer": "^8.2.5",
     "jest": "^29.3.1",
     "path": "^0.12.7"
-  }
+  },
+  "name": "express-module-10-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jicard/Express.js-Employee-Roster-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jicard/Express.js-Employee-Roster-Generator/issues"
+  },
+  "homepage": "https://github.com/jicard/Express.js-Employee-Roster-Generator#readme",
+  "description": ""
 }
